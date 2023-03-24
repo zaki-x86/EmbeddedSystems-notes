@@ -6,7 +6,6 @@ keywords: ["Electrical Engineering", "Binary Numbers"]
 ---
 
 # Coding and Binary Numbers
-
 - [Coding and Binary Numbers](#coding-and-binary-numbers)
   - [Introduction](#introduction)
   - [Overview of Coding and Number Systems](#overview-of-coding-and-number-systems)
@@ -22,6 +21,9 @@ keywords: ["Electrical Engineering", "Binary Numbers"]
     - [Hexadecimal Numbers](#hexadecimal-numbers)
       - [What is Hexadecimal](#what-is-hexadecimal)
       - [Converting from Decimal to Hexadecimal](#converting-from-decimal-to-hexadecimal)
+    - [Operations on Binary Numbers](#operations-on-binary-numbers)
+      - [Addition](#addition)
+      - [Subtraction](#subtraction)
   - [Summary](#summary)
 
 ## Introduction
@@ -185,6 +187,16 @@ To convert a decimal number to hexadecimal, you can use the following steps:
 1. Divide 42 by 16: 42 ÷ 16 = 2 with remainder 10.
 2. Divide 2 by 16: 2 ÷ 16 = 0 with remainder 2.
 3. Reverse the order of the remainders: 2A.
+
+### Operations on Binary Numbers
+
+#### Addition
+
+<!-- TODO: Add image -->
+
+#### Subtraction
+
+<!-- TODO -->
 
 ## Summary
 
