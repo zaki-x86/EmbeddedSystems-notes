@@ -2,4 +2,4 @@ root: ./
 
 structure: 
   readme: README.md
-  summary: Automotive_ES.md
+  summary: SUMMARY.md

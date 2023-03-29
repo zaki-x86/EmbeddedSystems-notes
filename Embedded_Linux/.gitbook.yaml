@@ -2,4 +2,4 @@ root: ./
 
 structure: 
   readme: README.md
-  summary: Embedded_Linux.md
+  summary: SUMMARY.md
