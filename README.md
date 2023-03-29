@@ -17,21 +17,21 @@
 *   Power supplies.
 *   Digital logic circuits.
     
-3.  **Signals and Systems:**
+3.  **Basic Knowledge of Signals and Systems:**
 
 *   Time and frequency domains.
 *   Analog and digital signals.
 *   Fourier series and transform.
 *   Sampling and quantization.
 
-4.  **Control Systems:**
+4.  **Basic Knowledge of Control Systems:**
 
 *   Closed-loop feedback control systems.
 *   Transfer functions and block diagrams.
 *   Stability and performance analysis.
 *   PID controllers.
 
-5.  **Microcontrollers and Embedded Systems:**
+5.  **Introduction to Microcontrollers and Embedded Systems:**
 
 *   Microprocessor architecture and design.
 *   Microcontroller main components.
