@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Microcontrollers: The Big Picture"
 date: 2023-3-23
@@ -118,3 +119,8 @@ The watchdog timer is a timer that is used to reset the microcontroller if the p
 In the next tutorial, we will learn how to program the AVR microcontroller.
 
 **Next**: [Programming the AVR](./programming-the-avr.md)
+=======
+# Table of contents
+
+* [Page 1](README.md)
+>>>>>>> 7352ef3153ac72a5f70f063cafb9cf2e80e121eb
