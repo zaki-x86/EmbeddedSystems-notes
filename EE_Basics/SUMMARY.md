@@ -7,7 +7,13 @@
 
 ## Circuit Analysis
 
-* [DC Circuit Analysis](circuit-analysis/dc-circuit-analysis.md)
+* [DC Circuit Analysis](circuit-analysis/dc-circuit-analysis/README.md)
+  * [Voltage, Power, Current and Energy](circuit-analysis/dc-circuit-analysis/voltage-power-current-and-energy.md)
+  * [Circuit Elements](circuit-analysis/dc-circuit-analysis/circuit-elements.md)
+  * [Circuits Terminology](circuit-analysis/dc-circuit-analysis/circuits-terminology.md)
+  * [Resistor Circuits](circuit-analysis/dc-circuit-analysis/resistor-circuits.md)
+  * [Kirchhoff's Laws](circuit-analysis/dc-circuit-analysis/kirchhoffs-laws.md)
+  * [Thevenin and Norton Equivalent Circuits](circuit-analysis/dc-circuit-analysis/thevenin-and-norton-equivalent-circuits.md)
 * [AC Circuit Analysis](circuit-analysis/ac-circuit-analysis.md)
 * [RCL Circuits](circuit-analysis/rcl-circuits.md)
 
