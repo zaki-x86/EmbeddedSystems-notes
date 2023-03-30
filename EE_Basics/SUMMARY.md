@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Table of contents
 
 ## Introduction
@@ -34,4 +32,3 @@
 
 * [Protus](tools-for-electrical-engineers/protus.md)
 * [Matlab](tools-for-electrical-engineers/matlab.md)
->>>>>>> e576439a7122238cf3e7bcb1a4e7d1955f1a5a44
