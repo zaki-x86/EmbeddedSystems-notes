@@ -1,3 +1,4 @@
 # Table of contents
 
-* [Page 1](README.md)
+* [Introduction](README.md)
+* [Overview of Embedded C](Embedded_C.md)
