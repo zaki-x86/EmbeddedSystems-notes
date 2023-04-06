@@ -5,12 +5,15 @@
 
 ## Basics
 
-* [Interfacing I/O ports](basics/interfacing-i-o-ports.md)
+* [Interfacing I/O ports](basics/interfacing-i-o-ports/README.md)
+  * [Intro to the AVR library](basics/interfacing-i-o-ports/intro-to-the-avr-library.md)
+  * [Embedded Systems 101: Blinking a LED](basics/interfacing-i-o-ports/embedded-systems-101-blinking-a-led.md)
 * [Basics of Serial Communication Protocols](basics/basics-of-serial-communication-protocols.md)
-* [Timers](basics/timers.md)
+* [AVR Architecture](basics/avr-architecture/README.md)
+  * [Timers](basics/avr-architecture/timers.md)
+  * [ADC/DAC](basics/avr-architecture/adc-dac.md)
+  * [EEPROM](basics/avr-architecture/eeprom.md)
 * [Interrupts](basics/interrupts.md)
-* [ADC/DAC](basics/adc-dac.md)
-* [Interfacing with EEPROM](basics/interfacing-with-eeprom.md)
 
 ## Beginner Projects
 
