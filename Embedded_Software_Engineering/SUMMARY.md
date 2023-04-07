@@ -8,7 +8,7 @@
 * [Interfacing I/O ports](basics/interfacing-i-o-ports/README.md)
   * [Intro to the AVR library](basics/interfacing-i-o-ports/intro-to-the-avr-library.md)
   * [Embedded Systems 101: Blinking a LED](basics/interfacing-i-o-ports/embedded-systems-101-blinking-a-led.md)
-* [Basics of Serial Communication Protocols](basics/serial-communication/README.md)
+* [Serial Communication Protocols](basics/serial-communication/README.md)
   * [USART](basics/serial-communication/usart.md)
   * [SPI](basics/serial-communication/spi.md)
   * [I2C](basics/serial-communication/i2c.md)
@@ -29,7 +29,11 @@
 
 ## Embedded Software Design
 
-## Example Projects
+* [Software Development Life Cycle](basics/embedded-software-design/sdlc.md)
+* [V-Model](basics/embedded-software-design/v-model.md)
+* [Software Testing](basics/embedded-software-design/software-testing.md)
+
+## Projects
 
 * [Temperature Sensing System](projects/temperature-sensing-system.md)
 * [Traffic Light Control System](projects/traffic-light-control-system.md)
