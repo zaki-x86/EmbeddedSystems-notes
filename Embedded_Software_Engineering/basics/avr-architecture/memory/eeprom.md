@@ -1,2 +1,2 @@
-# Interfacing with EEPROM
+# EEPROM
 
