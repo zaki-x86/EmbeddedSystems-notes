@@ -99,6 +99,8 @@ The UBRR register is used to set the baud rate of the USART. The following table
 | UBRRH | USART Baud Rate Register High |
 | UBRRL | USART Baud Rate Register Low |
 
+## USART Interfacing
+
 ## References
 
 - [Interrupt-driven UART Library for 8-bit AVR](https://onlinedocs.microchip.com/pr/GUID-80B1922D-872B-40C8-A8A5-0CBE009FD908-en-US-3/index.html?GUID-F721DB7D-EB3A-490F-A762-AA8C7CC06CD5)
