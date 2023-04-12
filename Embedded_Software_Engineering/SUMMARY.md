@@ -7,6 +7,10 @@
 ## C Programming Language
 
 * [Embedded C](embedded-c/README.md)
+  * [Modifiers](embedded-c/modifiers.md)
+  * [Bitwise Operators](embedded-c/bitwise-operators.md)
+  * [Memory Management](embedded-c/memory-management.md)
+  * [Misra C](embedded-c/misra-c.md)
 
 ## Basics of Embedded Systems with The AVR Microcontroller
 
