@@ -115,4 +115,95 @@ The SPI Data Register, SPDR, contains the SPI data. It is located at address 0x2
 
 ## SPI Data Modes
 
+The SPI interface supports four different data modes. The data modes are defined by the clock polarity and clock phase. The clock polarity is defined by the CPOL bit, and the clock phase is defined by the CPHA bit.
+
+| CPOL | CPHA | Data Mode |
+| ---- | ---- | --------- |
+| 0 | 0 | Mode 0 |
+| 0 | 1 | Mode 1 |
+| 1 | 0 | Mode 2 |
+| 1 | 1 | Mode 3 |
+
+### Mode 0
+
+In Mode 0, the clock is low when idle, and the data is sampled on the leading edge of the clock. The following figure shows the SPI interface in Mode 0.
+
+![SPI Mode 0](./images/spi-mode-0.png)
+
+### Mode 1
+
+In Mode 1, the clock is low when idle, and the data is sampled on the trailing edge of the clock. The following figure shows the SPI interface in Mode 1.
+
+![SPI Mode 1](./images/spi-mode-1.png)
+
+### Mode 2
+
+In Mode 2, the clock is high when idle, and the data is sampled on the leading edge of the clock. The following figure shows the SPI interface in Mode 2.
+
+![SPI Mode 2](./images/spi-mode-2.png)
+
+### Mode 3
+
+In Mode 3, the clock is high when idle, and the data is sampled on the trailing edge of the clock. The following figure shows the SPI interface in Mode 3.
+
+![SPI Mode 3](./images/spi-mode-3.png)
+
 ## SPI Interfacing
+
+### Initialization
+
+The SPI interface is initialized by configuring the SPI Control Register, SPCR. The following code snippet shows how to initialize the SPI interface as a Master in Mode 0.
+
+```c
+void SPI_MasterInit(void)
+{
+    /* Set MOSI and SCK output, all others input */
+    DDRB = (1<<DDB5)|(1<<DDB7);
+    /* Enable SPI, Master, set clock rate fck/16 */
+    SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+}
+```
+
+The following code snippet shows how to initialize the SPI interface as a Slave in Mode 0.
+
+```c
+void SPI_SlaveInit(void)
+{
+    /* Set MISO output, all others input */
+    DDRB = (1<<DDB6);
+    /* Enable SPI */
+    SPCR = (1<<SPE);
+}
+```
+
+### SPI Master
+
+The SPI Master can send and receive data using the SPI Data Register, SPDR. The following code snippet shows how to send and receive data using the SPI interface as a Master.
+
+```c
+void SPI_MasterTransmit(char cData)
+{
+    /* Start transmission */
+    SPDR = cData;
+    /* Wait for transmission complete */
+    while(!(SPSR & (1<<SPIF)));
+}
+```
+
+### SPI Slave
+
+The SPI Slave can send and receive data using the SPI Data Register, SPDR. The following code snippet shows how to send and receive data using the SPI interface as a Slave.
+
+```c
+char SPI_SlaveReceive(void)
+{
+    /* Wait for reception complete */
+    while(!(SPSR & (1<<SPIF)));
+    /* Return data register */
+    return SPDR;
+}
+```
+
+## Example: Interfacing with a sensor
+
+## References

@@ -17,15 +17,48 @@ Like many microcontrollers AVR has a dedicated hardware for USART.
 
 This special hardware make your life as programmer easier. You just have to supply the data you need to transmit and it will do the rest.
 
-## USART Hardware Achitecture
+## USART Pinout
 
-A typical architecture of USART hardware in the avr microcontroller is shown below.
+The following table shows the pinout of the USART.
 
-![USART Hardware Architecture](../../assets/avrusart.png)
+| Pin | Description |
+| --- | ----------- |
+| TX | Transmit |
+| RX | Receive |
+| GND | Ground |
 
-Source: [Microchip](https://microchipdeveloper.com/8avr:avrusartintro)
+## USART Data Packet
 
-Note that AVR may has multiple channels (depending on which ATMEGA version you're using) for USART. This means that you can have multiple USART channels in your microcontroller. Each channel has its own set of registers. Each channel is denoted by `n`. For example, `UART0` is the peripheral for USART channel `0`.
+The data frame is the data that is being transmitted or received. The data frame consists of the following:
+
+- Start bit
+- Data bits
+- Parity bit
+- Stop bit
+
+### Start Bit
+
+The start bit is a single bit that is always `0`. It is used to indicate the start of the data frame.
+
+The UART data transmission line (TX) is normally held High (1) logic-level when there is no data transmission on the line. To start data transfer, the transmitting UART pulls-down the transmission line from high to low for one clock cycle. When the receiving UART module detects the high to low voltage transition, it begins reading the incoming bits of the entire data frame at the same frequency of the specified baud rate.
+
+### Data Bits
+
+The data bits are the bits that carry the actual data. The number of data bits can be 5, 6, 7, or 8 bits.
+
+### Parity Bit
+
+The parity bit is used to check for errors in the data frame. The parity bit can be either even or odd. If the parity bit is even, then the number of `1` bits in the data frame must be even. If the parity bit is odd, then the number of `1` bits in the data frame must be odd.
+
+### Stop Bit
+
+The stop bit is a single bit that is always `1`. It is used to indicate the end of the data frame.
+
+## USART Data Transfer Rate
+
+### Baud Rate
+
+The Baud Rate specifies how fast the data is sent over the bus and it is specified in bits-per-second or bps. You can actually choose any speed for the baud rate. However, there are some specific values that are known to be the industry standards. The most common and widely-used standardized value is 9600. Other standard baud rates include: 1200, 2400, 4800, 19200, 38400, 57600 and 115200. Obviously, baud rates are always multiples of 300. Baud rates higher than 115200(bps) can be used with an additional probability of having, at best, missing data packets. The rule of thumb in UART communication is, both the transmitter and the Receiver UART must agree on the exact same Baud Rate for a successful data transmission.
 
 ### USART Registers
 
@@ -99,7 +132,110 @@ The UBRR register is used to set the baud rate of the USART. The following table
 | UBRRH | USART Baud Rate Register High |
 | UBRRL | USART Baud Rate Register Low |
 
-## USART Interfacing
+## The Data Transmission Process
+
+### Initialization
+
+The first step is to initialize the USART. The following code shows how to initialize the USART.
+
+```c
+#include <avr/io.h>
+#include <util/delay.h>
+
+void USART_Init(unsigned int ubrr)
+{
+    /* Set baud rate */
+    UBRRH = (unsigned char)(ubrr>>8);
+    UBRRL = (unsigned char)ubrr;
+    /* Enable receiver and transmitter */
+    UCSRB = (1<<RXEN)|(1<<TXEN);
+    /* Set frame format: 8data, 2stop bit */
+    UCSRC = (1<<URSEL)|(1<<USBS)|(3<<UCSZ0);
+}
+
+int main(void)
+{
+    USART_Init(51);
+    while(1)
+    {
+        // application logic goes here
+    }
+    return 0;
+}
+```
+
+### Transmitting Data
+
+#### Sending frames with 5 to 8 data bits
+
+The following code shows how to transmit data.
+
+```c
+void USART_Transmit(unsigned char data)
+{
+    /* Wait for empty transmit buffer */
+    while ( !( UCSRA & (1<<UDRE)) );
+    /* Put data into buffer, sends the data */
+    UDR = data;
+}
+```
+
+#### Sending frames with 9 data bits
+
+```c
+void USART_Transmit( unsigned int data )
+{
+    /* Wait for empty transmit buffer */
+    while ( !( UCSRnA & (1<<UDRE))) );
+    
+    /* Copy 9th bit to TXB8 */
+    UCSRB &= ~(1<<TXB8);
+    if ( data & 0x0100 )
+        UCSRnB |= (1<<TXB8);
+    /* Put data into buffer, sends the data */
+    UDR = data;
+}
+```
+
+### Receive Data
+
+#### Receiving frames with 5 to 8 data bits
+
+The following code shows how to receive data.
+
+```c
+unsigned char USART_Receive(void)
+{
+    /* Wait for data to be received */
+    while ( !(UCSRA & (1<<RXC)) );
+    /* Get and return received data from buffer */
+    return UDR;
+}
+```
+
+#### Receiving frames with 9 data bits
+
+```c
+unsigned int USART_Receive( void )
+{
+    unsigned char status, resh, resl;
+    /* Wait for data to be received */
+    while ( !(UCSRnA & (1<<RXC)) );
+    /* Get status and 9th bit, then data */
+    /* from buffer */
+    status = UCSRnA;
+    resh = UCSRnB;
+    resl = UDR;
+    /* If error, return -1 */
+    if ( status & ((1<<FE)|(1<<DOR)|(1<<PE)) )
+        return -1;
+    /* Filter the 9th bit, then return */
+    resh = (resh >> 1) & 0x01;
+    return ((resh << 8) | resl);
+}
+```
+
+## Example: Serial Monitor
 
 ## References
 

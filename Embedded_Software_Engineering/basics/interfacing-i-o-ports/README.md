@@ -22,7 +22,6 @@ The (**Port Output Register**) PORTx, is used to control the output value of eac
 
 The (**Port Input Register**) PINx, is used for reading the input value of each pin.\
 
-
 ### Controlling Data Direction
 
 We usually think in binary when we work with registers, because each bit within the byte located at address DDRx represents a separate pin. To set a pin as input you write 0 to the relevant bit. To set it as output you write a 1. Here are a few examples:

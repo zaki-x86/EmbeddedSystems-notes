@@ -1,3 +1,6 @@
+---
+description: I2C Tutorial with AVR
+---
 # I2C (Inter Integrated Circuit)
 
 I2C is a serial communication protocol that allows multiple devices to communicate with each other. It is a multi-master, multi-slave, single-ended, serial, half-duplex, packet-switched, synchronous serial communication protocol.
@@ -21,35 +24,37 @@ I2C is usually used to connect low speed devices like EEPROMs, ADCs/DACs, I/O in
 - Fully Programmable Slave Address with General Call Support
 - Address Recognition Causes Wake-up When AVR is in Sleep Mode
 
-## I2C Bus
+### I2C Architecture
+
+### I2C Bus
 
 The I2C bus consists of two lines, SDA and SCL. The SDA line is bidirectional and the SCL line is unidirectional. The SCL line is used to synchronize data transfer on the SDA line. The SCL line is always driven by the master device and the SDA line is driven by both the master and the slave devices. Both the SDA and SCL lines are pulled high by pull-up resistors because both lines are **active low**.
 
-## I2C Frame
+### I2C Frame
 
 The I2C frame consists of a start bit, 7-bit address, a read/write bit, 8-bit data, and a stop bit.
 
-### Start Bit
+#### Start Bit
 
 The start bit is a logic high to low transition on the SDA line while the SCL line is high. It indicates the start of a new frame.
 
-### 7-bit Address
+#### 7-bit Address
 
 The 7-bit address is used to identify the slave device. The 7-bit address is followed by a read/write bit. The 7-bit address is sent by the master device and the slave device acknowledges it by pulling the SDA line low.
 
-### Read/Write Bit
+#### Read/Write Bit
 
 The read/write bit is used to indicate whether the master device wants to read from or write to the slave device. If the read/write bit is 0, the master device wants to write to the slave device. If the read/write bit is 1, the master device wants to read from the slave device.
 
-### 8-bit Data
+#### 8-bit Data
 
 The 8-bit data is sent by the master device and the slave device acknowledges it by pulling the SDA line low.
 
-### Stop Bit
+#### Stop Bit
 
 The stop bit is a logic low to high transition on the SDA line while the SCL line is high. It indicates the end of a frame.
 
-## I2C Bit Generator Unit
+### I2C Bit Generator Unit
 
 This unit controls the period of SCL when operating in a Master mode. The SCL period is controlled by settings in the TWI Bit Rate Register (TWBR) and the Prescaler bits in the TWI Status Register (TWSR). Slave operation does not depend on Bit Rate or Prescaler settings, but the CPU clock frequency in the Slave must be at least 16 times higher than the SCL frequency. Note that slaves may prolong the SCL low period, thereby reducing the average TWI bus clock period.
 
@@ -59,7 +64,7 @@ $$ f_{SCL} = \frac{f_{CPU}}{16 + 2 \times TWBR \times 4^{TWPS}} $$
 
 where $f_{CPU}$ is the CPU clock frequency and $TWBR$ and $TWPS$ are the values of the TWI Bit Rate Register and the TWI Prescaler bits in the TWI Status Register respectively.
 
-## Multi-Master Arbitration
+### Multi-Master Arbitration
 
 In I2C, multiple master devices can be connected to the same bus. Multi-master arbitration is the mechanism by which these devices can communicate with each other in an orderly fashion, without interfering with each other's communications.
 
@@ -81,39 +86,32 @@ Arbitration is carried out by all masters monitoring the SDA line after outputti
 
 ![SDA Syncing](../../asset/../assets/arbitration-between-masters.png)
 
-## I2C Registers
+### I2C Registers in AVR
 
-The I2C registers are:
+You can download the datasheet for the AVR of your choice, [here](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061B.pdf) is the datasheet for [ATMEGA328](https://www.microchip.com/en-us/product/ATmega328).
 
-- TWBR: TWI Bit Rate Register
-- TWSR: TWI Status Register
-- TWAR: TWI (Slave) Address Register
-- TWDR: TWI Data Register
-- TWCR: TWI Control Register
+In the ATMEGA328, the software can interact with these I2C registers to drive the communication:
 
-### TWI Bit Rate Register (TWBR)
+- `TWBR` (TWI Bit Rate Register): is used to set the bit rate of the I2C bus.
+- `TWSR` (TWI Status Register): is used to query the status of the I2C bus.
+- `TWAR` (TWI (Slave) Address Register): is used to set the address of the I2C slave device.
+- `TWDR` (TWI Data Register): is used to send and receive data on the I2C bus.
+- `TWCR` (TWI Control Register) : is used to control the I2C bus.
 
-The TWI Bit Rate Register (TWBR) is used to set the bit rate of the TWI. The bit rate is set by writing a value to the TWBR register.
+> Note: I2C is the same as Two Wire Interface (TWI) in the ATMEGA328.
 
-TWBR selects the division factor for the bit rate generator. The bit rate generator is a frequency divider which generates the SCL clock frequency in the Master modes. See Bit Rate Generator Unit for calculating bit rates.
+## I2C Communication
 
-### TWI Status Register (TWSR)
+Here is a simple example of I2C communication between two ATMEGA328 microcontrollers. The first microcontroller is the master and the second microcontroller is the slave.
 
-#### Bits 7:3 – TWSn: TWI Status Bit 7 [n = 7:3]
+### I2C Communication between two ATMEGA328
 
-#### Bits 1:0 – TWPSn: TWI Prescaler Bits 2 [n = 1:0]
 
-These bits can be read and written, and control the bit rate prescaler.
+### Slave
+## I2C Interfacing
 
-TWPS1|TWPS0|Prescaler Value
-:--:|:--:|:--:
-0|0|1
-0|1|4
-1|0|16
-1|1|64
+## Summary
 
-### TWI (Slave) Address Register (TWAR)
+## Next Steps
 
-### TWI Data Register (TWDR)
-
-### TWI Control Register (TWCR)
+## References
