@@ -1,2 +1,0 @@
-# Embedded C Coding Standards
-
