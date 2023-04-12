@@ -4,7 +4,7 @@
 
 ## Basics
 
-* [Overview of the AVR Microcontroller](basics/avr\_programming.md)
+* [Overview of the AVR Microcontroller](basics/overview-of-the-avr.md)
 * [Interfacing I/O ports](../AVR\_Programming/basics/interfacing-i-o-ports.md)
   * [Intro to the AVR library](basics/interfacing-i-o-ports/intro-to-the-avr-library.md)
   * [Embedded Systems 101: Blinking a LED](basics/interfacing-i-o-ports/embedded-systems-101-blinking-a-led.md)
