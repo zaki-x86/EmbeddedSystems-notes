@@ -24,5 +24,8 @@
   * [Network Services](overview-of-the-kernel-services/network-services.md)
   * [Memory Management Services](overview-of-the-kernel-services/memory-management-services.md)
   * [I/O Subsystem](overview-of-the-kernel-services/io-subsystem.md)
-* [Modularizing An Application for Concurrency](overview-of-the-kernel-services/modularizing-an-application-for-concurrency.md)
+
+## Building Applications for RTOS
+
+* [Modularizing An Application for Concurrency](modularizing-an-application-for-concurrency.md)
 * [Common Design Problems](common-design-problems.md)
