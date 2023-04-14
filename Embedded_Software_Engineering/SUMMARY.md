@@ -1,4 +1,4 @@
-# Table of Contents
+# Table of contents
 
 ## Introduction
 
@@ -7,6 +7,8 @@
 ## C Programming Language
 
 * [Embedded C](embedded-c/README.md)
+  * [The Compilation Process](c-programming-language/embedded-c/the-compilation-process/README.md)
+    * [How C code is compiled](c-programming-language/embedded-c/the-compilation-process/how-c-code-is-compiled.md)
   * [Modifiers](embedded-c/modifiers.md)
   * [Bitwise Operators](embedded-c/bitwise-operators.md)
   * [Memory Management](embedded-c/memory-management.md)
@@ -23,7 +25,7 @@
   * [Timer Modes](basics/timers/timer-modes.md)
   * [PWM](basics/timers/pwm.md)
 * [Serial Communication Protocols](basics/serial-communication/README.md)
-  * [UART](basics/serial-communication/uart.md)
+  * [UART](basics-of-embedded-systems-with-the-avr-microcontroller/serial-communication/uart.md)
   * [SPI](basics/serial-communication/spi.md)
   * [I2C](basics/serial-communication/i2c.md)
 * [ADC](basics/adc/README.md)
@@ -47,8 +49,8 @@
   * [Stepper Motors](drivers/motors/stepper.md)
   * [Servo Motors](drivers/motors/servo.md)
 * [Sensors](drivers/sensors/README.md)
-  * [Ultra Sonic Sensor](drivers/sensors/ultra-sonic.md)
-  * [Temperature Sensor](drivers/sensors/temperature.md)
+  * [Ultra Sonic Sensor](writing-hardware-drivers/sensors/ultra-sonic-sensor.md)
+  * [Temperature Sensor](writing-hardware-drivers/sensors/temperature-sensor.md)
 * [Communication](drivers/communication/README.md)
   * [Bluetooth](drivers/communication/bluetooth.md)
   * [WiFi](drivers/communication/wifi.md)
@@ -59,6 +61,6 @@
 * [Traffic Light Controller](projects/traffic-light-controller.md)
 * [Line Follower Robot](projects/line-follower-robot.md)
 * [Bluetooth Controlled Robot](projects/bluetooth-controlled-robot.md)
-* [WiFi Controlled Robot](projects/wifi-controlled-robot.md)
-* [Temperature Controlled Heater](projects/temperature-controlled-heater.md)
+* [WiFi Controlled Robot](embedded-systems-projects/wifi-controlled-robot.md)
+* [Temperature Controlled Heater](embedded-systems-projects/temperature-controlled-heater.md)
 * [Smart Home](projects/smart-home.md)
