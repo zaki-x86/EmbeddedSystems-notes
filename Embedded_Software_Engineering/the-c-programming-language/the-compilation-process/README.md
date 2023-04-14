@@ -8,4 +8,3 @@ The goals of this section are to understand the following:
 * What is an executable image and how its mapped onto a target system.
 * The preprocessor and how it works.
 * Memory structure and how an executable image is loaded into memory.
-

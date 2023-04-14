@@ -1,0 +1,156 @@
+
+main:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	endbr64 
+    1004:	sub    $0x8,%rsp
+    1008:	mov    0x2fd9(%rip),%rax        # 3fe8 <__gmon_start__>
+    100f:	test   %rax,%rax
+    1012:	je     1016 <_init+0x16>
+    1014:	callq  *%rax
+    1016:	add    $0x8,%rsp
+    101a:	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	pushq  0x2fa2(%rip)        # 3fc8 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	bnd jmpq *0x2fa3(%rip)        # 3fd0 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102d:	nopl   (%rax)
+
+Disassembly of section .plt.got:
+
+0000000000001030 <__cxa_finalize@plt>:
+    1030:	endbr64 
+    1034:	bnd jmpq *0x2fbd(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    103b:	nopl   0x0(%rax,%rax,1)
+
+Disassembly of section .text:
+
+0000000000001040 <main>:
+    1040:	endbr64 
+    1044:	xor    %eax,%eax
+    1046:	retq   
+    1047:	nopw   0x0(%rax,%rax,1)
+
+0000000000001050 <_start>:
+    1050:	endbr64 
+    1054:	xor    %ebp,%ebp
+    1056:	mov    %rdx,%r9
+    1059:	pop    %rsi
+    105a:	mov    %rsp,%rdx
+    105d:	and    $0xfffffffffffffff0,%rsp
+    1061:	push   %rax
+    1062:	push   %rsp
+    1063:	lea    0x146(%rip),%r8        # 11b0 <__libc_csu_fini>
+    106a:	lea    0xcf(%rip),%rcx        # 1140 <__libc_csu_init>
+    1071:	lea    -0x38(%rip),%rdi        # 1040 <main>
+    1078:	callq  *0x2f62(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    107e:	hlt    
+    107f:	nop
+
+0000000000001080 <deregister_tm_clones>:
+    1080:	lea    0x2f89(%rip),%rdi        # 4010 <__TMC_END__>
+    1087:	lea    0x2f82(%rip),%rax        # 4010 <__TMC_END__>
+    108e:	cmp    %rdi,%rax
+    1091:	je     10a8 <deregister_tm_clones+0x28>
+    1093:	mov    0x2f3e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    109a:	test   %rax,%rax
+    109d:	je     10a8 <deregister_tm_clones+0x28>
+    109f:	jmpq   *%rax
+    10a1:	nopl   0x0(%rax)
+    10a8:	retq   
+    10a9:	nopl   0x0(%rax)
+
+00000000000010b0 <register_tm_clones>:
+    10b0:	lea    0x2f59(%rip),%rdi        # 4010 <__TMC_END__>
+    10b7:	lea    0x2f52(%rip),%rsi        # 4010 <__TMC_END__>
+    10be:	sub    %rdi,%rsi
+    10c1:	mov    %rsi,%rax
+    10c4:	shr    $0x3f,%rsi
+    10c8:	sar    $0x3,%rax
+    10cc:	add    %rax,%rsi
+    10cf:	sar    %rsi
+    10d2:	je     10e8 <register_tm_clones+0x38>
+    10d4:	mov    0x2f15(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    10db:	test   %rax,%rax
+    10de:	je     10e8 <register_tm_clones+0x38>
+    10e0:	jmpq   *%rax
+    10e2:	nopw   0x0(%rax,%rax,1)
+    10e8:	retq   
+    10e9:	nopl   0x0(%rax)
+
+00000000000010f0 <__do_global_dtors_aux>:
+    10f0:	endbr64 
+    10f4:	cmpb   $0x0,0x2f15(%rip)        # 4010 <__TMC_END__>
+    10fb:	jne    1128 <__do_global_dtors_aux+0x38>
+    10fd:	push   %rbp
+    10fe:	cmpq   $0x0,0x2ef2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1106:	mov    %rsp,%rbp
+    1109:	je     1117 <__do_global_dtors_aux+0x27>
+    110b:	mov    0x2ef6(%rip),%rdi        # 4008 <__dso_handle>
+    1112:	callq  1030 <__cxa_finalize@plt>
+    1117:	callq  1080 <deregister_tm_clones>
+    111c:	movb   $0x1,0x2eed(%rip)        # 4010 <__TMC_END__>
+    1123:	pop    %rbp
+    1124:	retq   
+    1125:	nopl   (%rax)
+    1128:	retq   
+    1129:	nopl   0x0(%rax)
+
+0000000000001130 <frame_dummy>:
+    1130:	endbr64 
+    1134:	jmpq   10b0 <register_tm_clones>
+    1139:	nopl   0x0(%rax)
+
+0000000000001140 <__libc_csu_init>:
+    1140:	endbr64 
+    1144:	push   %r15
+    1146:	lea    0x2ca3(%rip),%r15        # 3df0 <__frame_dummy_init_array_entry>
+    114d:	push   %r14
+    114f:	mov    %rdx,%r14
+    1152:	push   %r13
+    1154:	mov    %rsi,%r13
+    1157:	push   %r12
+    1159:	mov    %edi,%r12d
+    115c:	push   %rbp
+    115d:	lea    0x2c94(%rip),%rbp        # 3df8 <__do_global_dtors_aux_fini_array_entry>
+    1164:	push   %rbx
+    1165:	sub    %r15,%rbp
+    1168:	sub    $0x8,%rsp
+    116c:	callq  1000 <_init>
+    1171:	sar    $0x3,%rbp
+    1175:	je     1196 <__libc_csu_init+0x56>
+    1177:	xor    %ebx,%ebx
+    1179:	nopl   0x0(%rax)
+    1180:	mov    %r14,%rdx
+    1183:	mov    %r13,%rsi
+    1186:	mov    %r12d,%edi
+    1189:	callq  *(%r15,%rbx,8)
+    118d:	add    $0x1,%rbx
+    1191:	cmp    %rbx,%rbp
+    1194:	jne    1180 <__libc_csu_init+0x40>
+    1196:	add    $0x8,%rsp
+    119a:	pop    %rbx
+    119b:	pop    %rbp
+    119c:	pop    %r12
+    119e:	pop    %r13
+    11a0:	pop    %r14
+    11a2:	pop    %r15
+    11a4:	retq   
+    11a5:	data16 nopw %cs:0x0(%rax,%rax,1)
+
+00000000000011b0 <__libc_csu_fini>:
+    11b0:	endbr64 
+    11b4:	retq   
+
+Disassembly of section .fini:
+
+00000000000011b8 <_fini>:
+    11b8:	endbr64 
+    11bc:	sub    $0x8,%rsp
+    11c0:	add    $0x8,%rsp
+    11c4:	retq   

@@ -2,4 +2,4 @@ root: ./
 
 structure: 
   readme: README.md
-  summary: RTOS.md
+  summary: SUMMARY.md

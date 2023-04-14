@@ -6,8 +6,8 @@
 
 ## The C Programming Language
 
-* [The Compilation Process](the-c-programming-language/embedded-c/the-compilation-process/README.md)
-  * [How C code is compiled](the-c-programming-language/embedded-c/the-compilation-process/how-c-code-is-compiled.md)
+* [The Compilation Process](the-c-programming-language/the-compilation-process/README.md)
+  * [How C code is compiled](the-c-programming-language/the-compilation-process/how-c-code-is-compiled.md)
 * [Embedded C](embedded-c/README.md)
   * [Modifiers](embedded-c/modifiers.md)
   * [Bitwise Operators](embedded-c/bitwise-operators.md)
