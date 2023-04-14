@@ -1,2 +1,0 @@
-# Ultra Sonic Sensor
-

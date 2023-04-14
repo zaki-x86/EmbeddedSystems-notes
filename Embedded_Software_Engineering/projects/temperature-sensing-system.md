@@ -1,2 +1,0 @@
-# Temperature Controlled Heater
-
